@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://player.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/idle.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/walk.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/duck.png" id="4"]
+[ext_resource type="AudioStream" path="res://assets/bounce.wav" id="5"]
+[ext_resource type="AudioStream" path="res://assets/hit.wav" id="6"]
+
+[sub_resource type="SpriteFrames" id="frames"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="shape"]
+size = Vector2(22, 64)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("shape")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -10.8)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("frames")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 3700
+limit_bottom = 720
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="BounceSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5")
+volume_db = -4.0
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6")
+volume_db = -4.0

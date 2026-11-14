@@ -1,0 +1,555 @@
+[gd_scene format=3 uid="uid://c7w3reqaunqsf"]
+
+[ext_resource type="PackedScene" path="res://bee.tscn" id="bee_scn"]
+[ext_resource type="Texture2D" uid="uid://cyyx2ahh6uyh2" path="res://assets/bush.png" id="bush"]
+[ext_resource type="Texture2D" uid="uid://i0nk5fmtjpl4" path="res://assets/cloud.png" id="cloud"]
+[ext_resource type="Texture2D" uid="uid://dfolg2fsqsf61" path="res://assets/dirt.png" id="dirt"]
+[ext_resource type="Texture2D" uid="uid://c2wl35gmgvsyl" path="res://assets/flag.png" id="flag"]
+[ext_resource type="Texture2D" uid="uid://bgk58ccg5b86e" path="res://assets/flower_pink.png" id="flower_pink"]
+[ext_resource type="Texture2D" uid="uid://c6wxtr7u5si21" path="res://assets/flower_yellow.png" id="flower_yellow"]
+[ext_resource type="Script" uid="uid://0tnowpnvice6" path="res://goal.gd" id="goal_gd"]
+[ext_resource type="Texture2D" uid="uid://bjgtcum52vxu8" path="res://assets/grass.png" id="grass"]
+[ext_resource type="Texture2D" uid="uid://ddi4ip7g74bp5" path="res://assets/hill.png" id="hill"]
+[ext_resource type="Texture2D" uid="uid://c6i2njw8akepo" path="res://assets/pad.png" id="pad"]
+[ext_resource type="Script" uid="uid://b6256xxhtt6fd" path="res://pad.gd" id="pad_gd"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="player_scn"]
+[ext_resource type="Texture2D" uid="uid://b8myiv1n2vcji" path="res://assets/sky.png" id="sky"]
+[ext_resource type="PackedScene" path="res://slime.tscn" id="slime_scn"]
+[ext_resource type="AudioStream" uid="uid://cpqjud5j28cqk" path="res://assets/pad.wav" id="snd_pad"]
+[ext_resource type="AudioStream" uid="uid://dxxiyv0kjxh8l" path="res://assets/win.wav" id="snd_win"]
+[ext_resource type="Texture2D" uid="uid://cxj2tvxl7qvdi" path="res://assets/spike.png" id="spike"]
+[ext_resource type="Script" uid="uid://bb4uy5d2h1jv7" path="res://spike.gd" id="spike_gd"]
+[ext_resource type="PackedScene" path="res://star.tscn" id="star_scn"]
+[ext_resource type="Texture2D" uid="uid://bpq267ucp7aun" path="res://assets/sun.png" id="sun"]
+
+[sub_resource type="RectangleShape2D" id="s1"]
+size = Vector2(700, 100)
+
+[sub_resource type="RectangleShape2D" id="s2"]
+size = Vector2(500, 100)
+
+[sub_resource type="RectangleShape2D" id="s3"]
+size = Vector2(160, 24)
+
+[sub_resource type="RectangleShape2D" id="s4"]
+size = Vector2(160, 24)
+
+[sub_resource type="RectangleShape2D" id="s5"]
+size = Vector2(160, 24)
+
+[sub_resource type="RectangleShape2D" id="s6"]
+size = Vector2(800, 100)
+
+[sub_resource type="RectangleShape2D" id="s7"]
+size = Vector2(40, 200)
+
+[sub_resource type="RectangleShape2D" id="s8"]
+size = Vector2(160, 24)
+
+[sub_resource type="RectangleShape2D" id="s9"]
+size = Vector2(400, 100)
+
+[sub_resource type="RectangleShape2D" id="s10"]
+size = Vector2(96, 40)
+
+[sub_resource type="RectangleShape2D" id="s11"]
+size = Vector2(92, 14)
+
+[sub_resource type="RectangleShape2D" id="s12"]
+size = Vector2(72, 14)
+
+[sub_resource type="RectangleShape2D" id="s13"]
+size = Vector2(30, 100)
+
+[node name="Main" type="Node2D" unique_id=715893609]
+
+[node name="SkyLayer" type="CanvasLayer" parent="." unique_id=587450604]
+layer = -200
+
+[node name="Sky" type="TextureRect" parent="SkyLayer" unique_id=900174841]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("sky")
+expand_mode = 1
+
+[node name="Sun" type="TextureRect" parent="SkyLayer" unique_id=1039080988]
+offset_left = 1060.0
+offset_top = 40.0
+offset_right = 1180.0
+offset_bottom = 160.0
+mouse_filter = 2
+texture = ExtResource("sun")
+
+[node name="Background" type="ParallaxBackground" parent="." unique_id=2015013568]
+
+[node name="Hills" type="ParallaxLayer" parent="Background" unique_id=751898667]
+motion_scale = Vector2(0.5, 1)
+
+[node name="Hill1" type="Sprite2D" parent="Background/Hills" unique_id=291996237]
+position = Vector2(-180, 640)
+texture = ExtResource("hill")
+
+[node name="Hill2" type="Sprite2D" parent="Background/Hills" unique_id=1975783988]
+position = Vector2(200, 640)
+texture = ExtResource("hill")
+
+[node name="Hill3" type="Sprite2D" parent="Background/Hills" unique_id=1773957992]
+position = Vector2(580, 640)
+texture = ExtResource("hill")
+
+[node name="Hill4" type="Sprite2D" parent="Background/Hills" unique_id=549309673]
+position = Vector2(960, 640)
+texture = ExtResource("hill")
+
+[node name="Hill5" type="Sprite2D" parent="Background/Hills" unique_id=1213033355]
+position = Vector2(1340, 640)
+texture = ExtResource("hill")
+
+[node name="Hill6" type="Sprite2D" parent="Background/Hills" unique_id=708740310]
+position = Vector2(1720, 640)
+texture = ExtResource("hill")
+
+[node name="Hill7" type="Sprite2D" parent="Background/Hills" unique_id=681960428]
+position = Vector2(2100, 640)
+texture = ExtResource("hill")
+
+[node name="Hill8" type="Sprite2D" parent="Background/Hills" unique_id=360329580]
+position = Vector2(2480, 640)
+texture = ExtResource("hill")
+
+[node name="Clouds" type="ParallaxLayer" parent="Background" unique_id=1816254494]
+motion_scale = Vector2(0.7, 1)
+
+[node name="Cloud1" type="Sprite2D" parent="Background/Clouds" unique_id=1565327826]
+position = Vector2(160, 115)
+texture = ExtResource("cloud")
+
+[node name="Cloud2" type="Sprite2D" parent="Background/Clouds" unique_id=41604404]
+position = Vector2(620, 175)
+texture = ExtResource("cloud")
+
+[node name="Cloud3" type="Sprite2D" parent="Background/Clouds" unique_id=497196062]
+position = Vector2(1060, 95)
+texture = ExtResource("cloud")
+
+[node name="Cloud4" type="Sprite2D" parent="Background/Clouds" unique_id=2025223354]
+position = Vector2(1510, 165)
+texture = ExtResource("cloud")
+
+[node name="Cloud5" type="Sprite2D" parent="Background/Clouds" unique_id=1794265613]
+position = Vector2(1960, 105)
+texture = ExtResource("cloud")
+
+[node name="Cloud6" type="Sprite2D" parent="Background/Clouds" unique_id=1166961093]
+position = Vector2(2410, 175)
+texture = ExtResource("cloud")
+
+[node name="Cloud7" type="Sprite2D" parent="Background/Clouds" unique_id=694851676]
+position = Vector2(2860, 115)
+texture = ExtResource("cloud")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=1342666954]
+
+[node name="Platform1" type="StaticBody2D" parent="Platforms" unique_id=583086000]
+position = Vector2(0, 620)
+
+[node name="Shape" type="CollisionShape2D" parent="Platforms/Platform1" unique_id=2050439768]
+position = Vector2(350, 50)
+shape = SubResource("s1")
+
+[node name="Dirt" type="TextureRect" parent="Platforms/Platform1" unique_id=1779953168]
+offset_right = 700.0
+offset_bottom = 100.0
+mouse_filter = 2
+texture = ExtResource("dirt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass" type="TextureRect" parent="Platforms/Platform1" unique_id=1109627167]
+offset_top = -5.0
+offset_right = 700.0
+offset_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("grass")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Platform2" type="StaticBody2D" parent="Platforms" unique_id=158804278]
+position = Vector2(900, 620)
+
+[node name="Shape" type="CollisionShape2D" parent="Platforms/Platform2" unique_id=836376525]
+position = Vector2(250, 50)
+shape = SubResource("s2")
+
+[node name="Dirt" type="TextureRect" parent="Platforms/Platform2" unique_id=175981222]
+offset_right = 500.0
+offset_bottom = 100.0
+mouse_filter = 2
+texture = ExtResource("dirt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass" type="TextureRect" parent="Platforms/Platform2" unique_id=1300865362]
+offset_top = -5.0
+offset_right = 500.0
+offset_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("grass")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Platform3" type="StaticBody2D" parent="Platforms" unique_id=335365002]
+position = Vector2(1500, 520)
+
+[node name="Shape" type="CollisionShape2D" parent="Platforms/Platform3" unique_id=650814717]
+position = Vector2(80, 12)
+shape = SubResource("s3")
+
+[node name="Dirt" type="TextureRect" parent="Platforms/Platform3" unique_id=724710269]
+offset_right = 160.0
+offset_bottom = 24.0
+mouse_filter = 2
+texture = ExtResource("dirt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass" type="TextureRect" parent="Platforms/Platform3" unique_id=932206519]
+offset_top = -5.0
+offset_right = 160.0
+offset_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("grass")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Platform4" type="StaticBody2D" parent="Platforms" unique_id=667837009]
+position = Vector2(1750, 430)
+
+[node name="Shape" type="CollisionShape2D" parent="Platforms/Platform4" unique_id=626420417]
+position = Vector2(80, 12)
+shape = SubResource("s4")
+
+[node name="Dirt" type="TextureRect" parent="Platforms/Platform4" unique_id=822027232]
+offset_right = 160.0
+offset_bottom = 24.0
+mouse_filter = 2
+texture = ExtResource("dirt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass" type="TextureRect" parent="Platforms/Platform4" unique_id=473780071]
+offset_top = -5.0
+offset_right = 160.0
+offset_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("grass")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Platform5" type="StaticBody2D" parent="Platforms" unique_id=1825076610]
+position = Vector2(2000, 340)
+
+[node name="Shape" type="CollisionShape2D" parent="Platforms/Platform5" unique_id=244180392]
+position = Vector2(80, 12)
+shape = SubResource("s5")
+
+[node name="Dirt" type="TextureRect" parent="Platforms/Platform5" unique_id=1668437131]
+offset_right = 160.0
+offset_bottom = 24.0
+mouse_filter = 2
+texture = ExtResource("dirt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass" type="TextureRect" parent="Platforms/Platform5" unique_id=470711666]
+offset_top = -5.0
+offset_right = 160.0
+offset_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("grass")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Platform6" type="StaticBody2D" parent="Platforms" unique_id=1791388985]
+position = Vector2(2200, 620)
+
+[node name="Shape" type="CollisionShape2D" parent="Platforms/Platform6" unique_id=1674203254]
+position = Vector2(400, 50)
+shape = SubResource("s6")
+
+[node name="Dirt" type="TextureRect" parent="Platforms/Platform6" unique_id=998143611]
+offset_right = 800.0
+offset_bottom = 100.0
+mouse_filter = 2
+texture = ExtResource("dirt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass" type="TextureRect" parent="Platforms/Platform6" unique_id=1949106644]
+offset_top = -5.0
+offset_right = 800.0
+offset_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("grass")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Platform7" type="StaticBody2D" parent="Platforms" unique_id=941759570]
+position = Vector2(2650, 420)
+
+[node name="Shape" type="CollisionShape2D" parent="Platforms/Platform7" unique_id=2100090619]
+position = Vector2(20, 100)
+shape = SubResource("s7")
+
+[node name="Dirt" type="TextureRect" parent="Platforms/Platform7" unique_id=955950929]
+offset_right = 40.0
+offset_bottom = 200.0
+mouse_filter = 2
+texture = ExtResource("dirt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass" type="TextureRect" parent="Platforms/Platform7" unique_id=963644023]
+offset_top = -5.0
+offset_right = 40.0
+offset_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("grass")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Platform8" type="StaticBody2D" parent="Platforms" unique_id=2078745580]
+position = Vector2(3100, 520)
+
+[node name="Shape" type="CollisionShape2D" parent="Platforms/Platform8" unique_id=955308760]
+position = Vector2(80, 12)
+shape = SubResource("s8")
+
+[node name="Dirt" type="TextureRect" parent="Platforms/Platform8" unique_id=1759216886]
+offset_right = 160.0
+offset_bottom = 24.0
+mouse_filter = 2
+texture = ExtResource("dirt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass" type="TextureRect" parent="Platforms/Platform8" unique_id=2007426124]
+offset_top = -5.0
+offset_right = 160.0
+offset_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("grass")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Platform9" type="StaticBody2D" parent="Platforms" unique_id=702358409]
+position = Vector2(3300, 620)
+
+[node name="Shape" type="CollisionShape2D" parent="Platforms/Platform9" unique_id=2088511006]
+position = Vector2(200, 50)
+shape = SubResource("s9")
+
+[node name="Dirt" type="TextureRect" parent="Platforms/Platform9" unique_id=129424467]
+offset_right = 400.0
+offset_bottom = 100.0
+mouse_filter = 2
+texture = ExtResource("dirt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass" type="TextureRect" parent="Platforms/Platform9" unique_id=1688295511]
+offset_top = -5.0
+offset_right = 400.0
+offset_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("grass")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Pads" type="Node2D" parent="." unique_id=1791298787]
+
+[node name="Pad1" type="Area2D" parent="Pads" unique_id=462969228]
+position = Vector2(2400, 604)
+script = ExtResource("pad_gd")
+
+[node name="Shape" type="CollisionShape2D" parent="Pads/Pad1" unique_id=599026100]
+position = Vector2(48, -4)
+shape = SubResource("s10")
+
+[node name="Picture" type="TextureRect" parent="Pads/Pad1" unique_id=2016298801]
+offset_right = 96.0
+offset_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource("pad")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sound" type="AudioStreamPlayer" parent="Pads/Pad1" unique_id=1155229177]
+stream = ExtResource("snd_pad")
+volume_db = -2.0
+
+[node name="Spikes" type="Node2D" parent="." unique_id=925078033]
+
+[node name="Spike1" type="Area2D" parent="Spikes" unique_id=1779732598]
+position = Vector2(1100, 600)
+script = ExtResource("spike_gd")
+
+[node name="Shape" type="CollisionShape2D" parent="Spikes/Spike1" unique_id=1881028446]
+position = Vector2(50, 13)
+shape = SubResource("s11")
+
+[node name="Picture" type="TextureRect" parent="Spikes/Spike1" unique_id=276439910]
+offset_right = 100.0
+offset_bottom = 20.0
+mouse_filter = 2
+texture = ExtResource("spike")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Spike2" type="Area2D" parent="Spikes" unique_id=1662765531]
+position = Vector2(2800, 600)
+script = ExtResource("spike_gd")
+
+[node name="Shape" type="CollisionShape2D" parent="Spikes/Spike2" unique_id=1821177227]
+position = Vector2(40, 13)
+shape = SubResource("s12")
+
+[node name="Picture" type="TextureRect" parent="Spikes/Spike2" unique_id=1792317130]
+offset_right = 80.0
+offset_bottom = 20.0
+mouse_filter = 2
+texture = ExtResource("spike")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Decor" type="Node2D" parent="." unique_id=502623137]
+
+[node name="Decor1" type="Sprite2D" parent="Decor" unique_id=1807545860]
+position = Vector2(150, 605)
+texture = ExtResource("flower_pink")
+
+[node name="Decor2" type="Sprite2D" parent="Decor" unique_id=335457007]
+position = Vector2(300, 605)
+texture = ExtResource("flower_yellow")
+
+[node name="Decor3" type="Sprite2D" parent="Decor" unique_id=2090952232]
+position = Vector2(520, 605)
+texture = ExtResource("flower_pink")
+
+[node name="Decor4" type="Sprite2D" parent="Decor" unique_id=1799908259]
+position = Vector2(80, 601)
+texture = ExtResource("bush")
+
+[node name="Decor5" type="Sprite2D" parent="Decor" unique_id=587915772]
+position = Vector2(640, 601)
+texture = ExtResource("bush")
+
+[node name="Decor6" type="Sprite2D" parent="Decor" unique_id=680751286]
+position = Vector2(950, 605)
+texture = ExtResource("flower_yellow")
+
+[node name="Decor7" type="Sprite2D" parent="Decor" unique_id=553511691]
+position = Vector2(1300, 605)
+texture = ExtResource("flower_pink")
+
+[node name="Decor8" type="Sprite2D" parent="Decor" unique_id=784735115]
+position = Vector2(1360, 605)
+texture = ExtResource("flower_yellow")
+
+[node name="Decor9" type="Sprite2D" parent="Decor" unique_id=674054252]
+position = Vector2(1530, 505)
+texture = ExtResource("flower_yellow")
+
+[node name="Decor10" type="Sprite2D" parent="Decor" unique_id=1937765499]
+position = Vector2(2260, 601)
+texture = ExtResource("bush")
+
+[node name="Decor11" type="Sprite2D" parent="Decor" unique_id=1632771021]
+position = Vector2(2320, 605)
+texture = ExtResource("flower_pink")
+
+[node name="Decor12" type="Sprite2D" parent="Decor" unique_id=2064004667]
+position = Vector2(2560, 605)
+texture = ExtResource("flower_yellow")
+
+[node name="Decor13" type="Sprite2D" parent="Decor" unique_id=464621200]
+position = Vector2(2950, 605)
+texture = ExtResource("flower_pink")
+
+[node name="Decor14" type="Sprite2D" parent="Decor" unique_id=277958785]
+position = Vector2(3380, 601)
+texture = ExtResource("bush")
+
+[node name="Decor15" type="Sprite2D" parent="Decor" unique_id=1046967213]
+position = Vector2(3480, 605)
+texture = ExtResource("flower_yellow")
+
+[node name="Decor16" type="Sprite2D" parent="Decor" unique_id=1909932582]
+position = Vector2(3140, 505)
+texture = ExtResource("flower_pink")
+
+[node name="Mobs" type="Node2D" parent="." unique_id=640465478]
+
+[node name="Slime1" parent="Mobs" unique_id=935427372 instance=ExtResource("slime_scn")]
+position = Vector2(430, 588)
+range_x = 130.0
+
+[node name="Bee1" parent="Mobs" unique_id=1741827962 instance=ExtResource("bee_scn")]
+position = Vector2(1300, 470)
+range_x = 70.0
+
+[node name="Bee2" parent="Mobs" unique_id=1934555028 instance=ExtResource("bee_scn")]
+position = Vector2(2310, 500)
+range_x = 60.0
+bob = 20.0
+
+[node name="Slime2" parent="Mobs" unique_id=2057912592 instance=ExtResource("slime_scn")]
+position = Vector2(3410, 588)
+range_x = 70.0
+
+[node name="Stars" type="Node2D" parent="." unique_id=279277660]
+
+[node name="Star1" parent="Stars" unique_id=2038695191 instance=ExtResource("star_scn")]
+position = Vector2(1150, 430)
+
+[node name="Star2" parent="Stars" unique_id=1792848129 instance=ExtResource("star_scn")]
+position = Vector2(1580, 460)
+
+[node name="Star3" parent="Stars" unique_id=1901794190 instance=ExtResource("star_scn")]
+position = Vector2(1830, 370)
+
+[node name="Star4" parent="Stars" unique_id=1233672997 instance=ExtResource("star_scn")]
+position = Vector2(2080, 280)
+
+[node name="Star5" parent="Stars" unique_id=122128609 instance=ExtResource("star_scn")]
+position = Vector2(2670, 330)
+
+[node name="Star6" parent="Stars" unique_id=175284191 instance=ExtResource("star_scn")]
+position = Vector2(3180, 450)
+
+[node name="Goal" type="Area2D" parent="." unique_id=717151653]
+position = Vector2(3550, 520)
+script = ExtResource("goal_gd")
+
+[node name="Shape" type="CollisionShape2D" parent="Goal" unique_id=2039550803]
+position = Vector2(15, 50)
+shape = SubResource("s13")
+
+[node name="Picture" type="TextureRect" parent="Goal" unique_id=747139600]
+offset_right = 56.0
+offset_bottom = 100.0
+mouse_filter = 2
+texture = ExtResource("flag")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sound" type="AudioStreamPlayer" parent="Goal" unique_id=382634376]
+stream = ExtResource("snd_win")
+volume_db = -2.0
+
+[node name="Player" parent="." unique_id=1695054432 instance=ExtResource("player_scn")]
+position = Vector2(100, 560)
